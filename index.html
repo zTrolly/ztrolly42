@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favpng_windows-95-windows-98-microsoft-windows-transparency-gif.png">
+
+
+    <title>Error</title>
+
+    <style>
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        body{
+            background: url(./assets/img/windows-98-backgrounds-129465-970429-6399717\ \(1\).png) center no-repeat;
+            background-size: cover;
+            margin: 0;
+            display:  flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .window{
+            justify-content: center;
+
+        }
+
+        .div-btn{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .hide{
+            display:  none;
+        }
+
+        .loadImg img{
+            transform: rotateY(90);
+        }
+        
+        @-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+    </style>
+</head>
+<body>
+<div class="loadImg" id="loadImg">
+    <img  class= "rotating" src="./assets/img/PinClipart.com_sandcastle-clipart-black-and_5589465.png" width="20px"alt="">
+</div>
+
+    <div class="window hide" id ="window"style="margin: 32px; width: 250px">
+      <div class="title-bar">
+        <div class="title-bar-text">
+            Error cod:42
+        </div>
+
+        <div class="title-bar-controls">
+          <button class = "btn-sup"  aria-label="Minimize"></button>
+          <button class = "btn-sup" aria-label="Maximize"></button>
+          <button class = "btn-sup" aria-label="Close"></button>
+        </div>
+    </div>
+      <div class="window-body ">
+        <p>Ops! Alguma coisa de errado aconteceu com o site do Breno Lopes clique no "Ok" para acionar o suporte</p>
+        <p id="aviso"></p>
+        <section class="field-row" style="justify-content: flex-end">
+          <button><a href="pages/indexPerfil.html">Ok</a></button>
+          <button id="cancel"onclick="trocaCancel()">Cancel</button>
+        </section>
+      </div>
+    </div>
+    
+<script>
+
+
+    window.addEventListener('load', function() {
+        var load = document.getElementById("loadImg")
+        var window =  document.getElementById("window");
+        setTimeout(function(){
+            load.classList.add("hide");
+            window.classList.remove("hide");
+
+        }, 2000)
+    })
+
+
+    var contador = 0;
+    function trocaCancel(){
+        let aviso = document.getElementById("aviso");
+        aviso.innerHTML = "Você não tem opção de escolha!"
+        let btn = document.getElementById("cancel");
+        contador++;
+        btn.innerHTML = "Ok";
+
+        if(contador > 0){
+            btn.innerHTML = '<a href="pages/indexPerfil.html">Ok</a>';
+        }
+    }
+</script>
+</body>
+</html>
